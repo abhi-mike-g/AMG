@@ -1,6 +1,6 @@
 {
-  "name": "abhimg-portfolio",
+  "name": "abhimgcc",
   "type": "javascript",
   "compatibility_date": "2026-02-10",
-  "dir": "."
+  "pages_build_output_dir": "."
 }

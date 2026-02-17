@@ -1,1468 +1,492 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Abhidutta Mukund Giri - Computer & Communication Engineering Student, AI Researcher, and Co-founder">
-    <meta name="author" content="Abhidutta Mukund Giri">
-    <meta property="og:title" content="Abhidutta Mukund Giri - Portfolio">
-    <meta property="og:description" content="Computer & Communication Engineering Student | AI Researcher | Co-founder">
-    <meta property="og:type" content="website">
     <title>Abhidutta Mukund Giri - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&family=Reem+Kufi:wght@400..700&display=swap"
+        rel="stylesheet">
     <style>
-        :root {
-            --primary: #4361ee;
-            --secondary: #4cc9f0;
-            --dark: #1a1a2e;
-            --light: #16213e;
-            --text: #e6e6e6;
-            --text-secondary: #b8b8b8;
-            --card-bg: #0f3460;
-            --hover: #162447;
-            --success: #06d6a0;
-            --warning: #ffd166;
-            --error: #ef476f;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: linear-gradient(135deg, var(--dark) 0%, var(--light) 100%);
-            min-height: 100vh;
-            transition: color 0.3s, background 0.3s;
+            background: #1a1a1a;
+            overflow: hidden;
+            font-family: 'Georgia', 'Times New Roman', serif;
         }
-        
-        body.light-mode {
-            --text: #1a1a2e;
-            --text-secondary: #4a4a6a;
-            --card-bg: #ffffff;
-            --hover: #f0f4ff;
-            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Navigation */
-        .navbar {
+
+        #canvas {
             position: fixed;
             top: 0;
-            width: 100%;
-            background: rgba(15, 52, 96, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            transition: background 0.3s;
-        }
-        
-        body.light-mode .navbar {
-            background: rgba(255, 255, 255, 0.95);
-        }
-        
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .nav-brand {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        .nav-link {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-        
-        .nav-link:hover {
-            color: var(--primary);
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
             left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
-        
-        .nav-link:hover::after {
             width: 100%;
+            height: 100%;
+            z-index: 1;
+            cursor: crosshair;
         }
-        
-        .nav-actions {
+
+        .content {
+            position: relative;
+            z-index: 2;
+            height: 100vh;
             display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: var(--text);
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 50%;
-            transition: background 0.3s, transform 0.3s;
-        }
-        
-        .theme-toggle:hover {
-            background: var(--hover);
-            transform: rotate(30deg);
-        }
-        
-        .hamburger {
-            display: none;
             flex-direction: column;
-            cursor: pointer;
-        }
-        
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: var(--text);
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-        
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            text-align: center;
-            padding: 6rem 0 2rem;
-            background: radial-gradient(circle at center, rgba(67, 97, 238, 0.1) 0%, transparent 70%);
+            align-items: center;
+            pointer-events: none;
         }
-        
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+
+        h1 {
+            color: #ffffff;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-family: 'El Messiri', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            color: #cccccc;
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            margin-top: 1rem;
+            font-family: 'Reem Kufi', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .cta {
+            margin-top: 3rem;
+            pointer-events: auto;
+        }
+
+        .cta a {
+            font-family: 'El Messiri', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            padding: 12px 32px;
+            display: inline-block;
+            position: relative;
+            color: transparent;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.45) 0%,
+                rgba(255, 255, 255, 0.12) 25%,
+                rgba(255, 255, 255, 0.35) 50%,
+                rgba(255, 255, 255, 0.08) 75%,
+                rgba(255, 255, 255, 0.3) 100%
+            );
+            background-size: 200% 200%;
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: fadeInUp 0.8s ease-out;
+            -webkit-text-fill-color: transparent;
+            animation: glassShimmer 6s ease-in-out infinite;
+            transition: all 0.4s ease;
         }
-        
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease-out 0.1s both;
-        }
-        
-        .hero-description {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease-out 0.3s both;
-        }
-        
-        .btn {
-            padding: 0.75rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.6);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-        
-        .social-links a {
-            color: var(--text);
-            font-size: 1.5rem;
-            transition: color 0.3s, transform 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        /* Sections */
-        .section {
-            padding: 4rem 0;
-        }
-        
-        .section-alt {
-            background: rgba(255, 255, 255, 0.02);
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            margin: 1rem auto 0;
-            border-radius: 2px;
-        }
-        
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-        
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: var(--text-secondary);
-        }
-        
-        .about-stats {
-            display: grid;
-            gap: 1.5rem;
-        }
-        
-        .stat-item {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .stat-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        
-        .stat-label {
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-        
-        /* Timeline */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .timeline::before {
-            content: '';
+
+        .cta a::before {
+            content: 'view portfolio';
             position: absolute;
-            left: 30px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--primary);
+            top: 12px;
+            left: 32px;
+            right: 32px;
+            color: transparent;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.08) 0%,
+                rgba(255, 255, 255, 0.2) 40%,
+                rgba(255, 255, 255, 0.05) 60%,
+                rgba(255, 255, 255, 0.15) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: blur(1.5px);
+            z-index: -1;
         }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-            padding-left: 80px;
+
+        .cta a:hover {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.6) 0%,
+                rgba(255, 255, 255, 0.2) 25%,
+                rgba(255, 255, 255, 0.5) 50%,
+                rgba(255, 255, 255, 0.15) 75%,
+                rgba(255, 255, 255, 0.45) 100%
+            );
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glassShimmer 3s ease-in-out infinite;
+            text-shadow: none;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
         }
-        
-        .timeline-marker {
-            position: absolute;
-            left: 20px;
-            top: 10px;
-            width: 20px;
-            height: 20px;
-            background: var(--primary);
-            border-radius: 50%;
-            border: 4px solid var(--card-bg);
+
+        @keyframes glassShimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
-        
-        .timeline-content {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .timeline-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.5rem;
-        }
-        
-        .timeline-title-group h3 {
-            color: var(--text);
-            margin-bottom: 0.25rem;
-        }
-        
-        .timeline-date {
-            color: var(--primary);
-            font-weight: 500;
+
+        .click-hint {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.3);
+            font-family: 'Reem Kufi', sans-serif;
             font-size: 0.9rem;
-        }
-        
-        .timeline-company {
-            color: var(--text-secondary);
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-        
-        .timeline-overview {
-            margin-bottom: 1rem;
-        }
-        
-        .timeline-details {
-            display: none;
-            margin-top: 1rem;
-        }
-        
-        .timeline-details.active {
-            display: block;
-            animation: fadeIn 0.5s ease-out;
-        }
-        
-        .timeline-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .timeline-list li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .timeline-list li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-        }
-        
-        .timeline-toggle {
-            background: none;
-            border: none;
-            color: var(--primary);
-            cursor: pointer;
-            font-size: 1rem;
-            transition: transform 0.3s;
-        }
-        
-        .timeline-toggle.active {
-            transform: rotate(180deg);
-        }
-        
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            gap: 2rem;
-        }
-        
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-        
-        .project-title-group h3 {
-            color: var(--text);
-            margin-bottom: 0.25rem;
-        }
-        
-        .project-date {
-            color: var(--primary);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-        
-        .project-overview {
-            margin-bottom: 1rem;
-        }
-        
-        .project-details {
-            display: none;
-            margin-top: 1rem;
-        }
-        
-        .project-details.active {
-            display: block;
-            animation: fadeIn 0.5s ease-out;
-        }
-        
-        .project-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .project-list li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .project-list li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-        }
-        
-        .project-tech {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: rgba(67, 97, 238, 0.1);
-            border-radius: 5px;
-            font-size: 0.9rem;
-        }
-        
-        .project-toggle {
-            background: none;
-            border: none;
-            color: var(--primary);
-            cursor: pointer;
-            font-size: 1rem;
-            transition: transform 0.3s;
-        }
-        
-        .project-toggle.active {
-            transform: rotate(180deg);
-        }
-        
-        /* Education */
-        .education-grid {
-            display: grid;
-            gap: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .education-card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .education-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .education-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.5rem;
-        }
-        
-        .education-header h3 {
-            color: var(--text);
-            margin-bottom: 0.25rem;
-        }
-        
-        .education-date {
-            color: var(--primary);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-        
-        .education-institution {
-            color: var(--text-secondary);
-            font-style: italic;
-        }
-        
-        /* Hackathons */
-        .hackathons-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hackathon-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding: 1.5rem;
-            background: var(--card-bg);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .hackathon-item:hover {
-            transform: translateY(-3px);
-        }
-        
-        .hackathon-item i {
-            color: var(--warning);
-            font-size: 1.5rem;
-            margin-top: 0.25rem;
-        }
-        
-        .hackathon-content h3 {
-            color: var(--text);
-            margin-bottom: 0.25rem;
-        }
-        
-        .hackathon-content p {
-            color: var(--text-secondary);
-        }
-        
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-left: 0.5rem;
-        }
-        
-        .badge-finalist {
-            background: rgba(255, 209, 102, 0.2);
-            color: var(--warning);
-        }
-        
-        .badge-semifinalist {
-            background: rgba(6, 214, 160, 0.2);
-            color: var(--success);
-        }
-        
-        /* Certifications */
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .certification-card {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: var(--card-bg);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .certification-card:hover {
-            transform: translateY(-3px);
-        }
-        
-        .certification-card i {
-            color: var(--success);
-            font-size: 2rem;
-        }
-        
-        .certification-content h3 {
-            color: var(--text);
-            margin-bottom: 0.25rem;
-        }
-        
-        .certification-content p {
-            color: var(--text-secondary);
-        }
-        
-        /* Technologies */
-        .technologies-grid {
-            display: grid;
-            gap: 2rem;
-        }
-        
-        .tech-category {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .tech-category h3 {
-            color: var(--text);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .tech-tag {
-            background: rgba(67, 97, 238, 0.15);
-            color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .tech-tag:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        /* Contact */
-        .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .contact-description {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: var(--text-secondary);
-        }
-        
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: var(--card-bg);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .contact-item:hover {
-            transform: translateY(-3px);
-        }
-        
-        .contact-item i {
-            color: var(--primary);
-            font-size: 1.5rem;
-        }
-        
-        .contact-item h4 {
-            color: var(--text);
-            margin-bottom: 0.25rem;
-        }
-        
-        .contact-item a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .contact-item a:hover {
-            text-decoration: underline;
-        }
-        
-        .contact-form-container {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-        
-        .contact-form-container h3 {
-            color: var(--text);
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-        
-        .form-group label {
-            display: block;
-            color: var(--text);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            color: var(--text);
-            font-family: inherit;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-        
-        body.light-mode .form-group input,
-        body.light-mode .form-group textarea {
-            background: rgba(0, 0, 0, 0.05);
-            border-color: rgba(0, 0, 0, 0.1);
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
-        }
-        
-        .form-message {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 5px;
-            display: none;
-        }
-        
-        .form-message.success {
-            background: rgba(6, 214, 160, 0.2);
-            color: var(--success);
-            display: block;
-        }
-        
-        .form-message.error {
-            background: rgba(239, 71, 111, 0.2);
-            color: var(--error);
-            display: block;
-        }
-        
-        .contact-social {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-        
-        .social-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: var(--card-bg);
-            color: var(--text);
-            text-decoration: none;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-        }
-        
-        .social-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-            color: var(--primary);
-        }
-        
-        /* Footer */
-        .footer {
-            background: var(--card-bg);
-            padding: 2rem 0;
-            text-align: center;
-            color: var(--text-secondary);
-        }
-        
-        .footer-note {
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: var(--card-bg);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: left 0.3s;
-            }
-            
-            .nav-menu.active {
-                left: 0;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .timeline::before {
-                left: 20px;
-            }
-            
-            .timeline-item {
-                padding-left: 50px;
-            }
-            
-            .timeline-marker {
-                left: 10px;
-            }
-            
-            .timeline-header {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .project-header {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .contact-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .contact-social {
-                flex-direction: column;
-                align-items: center;
-            }
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            z-index: 2;
+            animation: hintFade 3s ease-in-out infinite;
+        }
+
+        @keyframes hintFade {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
         }
     </style>
 </head>
+
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">AMG</div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#technologies" class="nav-link">Technologies</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-                <div class="hamburger" id="hamburger">
-                    <span></span><span></span><span></span>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <canvas id="canvas"></canvas>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Abhidutta Mukund Giri</h1>
-                <p class="hero-subtitle">Computer & Communication Engineering Student | Medical AI Researcher </p>
-                <p class="hero-description">Passionate about Medical AI, Edge Computing, and Building Innovative Solutions</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                </div>
-                <div class="social-links">
-                    <a href="mailto:abhimg20@proton.me" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="https://www.linkedin.com/in/abhi-m-g-62925a218/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/abhi-mike-g" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
+    <div class="content">
+        <h1>Abhidutta Mukund Giri</h1>
+        <p class="subtitle">Engineer, Researcher, Artist</p>
+        <div class="cta">
+            <a href="#portfolio">view portfolio</a>
         </div>
-    </section>
-
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm a Computer and Communication Engineering student at Manipal Institute of Technology with a passion for Medical AI, Edge Computing, and innovative research. As a co-founder of Innotech Manipal, I work on developing automation algorithms for complex cell data analysis, enhancing data processing speed for transcription, genomics, and cell therapy applications.</p>
-                    <p>Currently, I'm working as a Medical AI Researcher at the Center for Advanced Scientific and Industrial Research, where I'm developing multi-modal classification models for red-blood cell morphology classification and building comprehensive software suites for clinical diagnosis.</p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">2+</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">5+</div>
-                        <div class="stat-label">Projects</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">3</div>
-                        <div class="stat-label">Hackathons</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div class="timeline-title-group">
-                                <h3>Medical AI Researcher</h3>
-                                <span class="timeline-date">August 2025 – Present</span>
-                            </div>
-                            <button class="timeline-toggle" aria-label="Toggle experience details"><i class="fas fa-chevron-down"></i></button>
-                        </div>
-                        <div class="timeline-company">Center for Advanced Scientific and Industrial Research, School of Computer Engineering — MIT, Manipal</div>
-                        <div class="timeline-overview">
-                            <p>Implemented Label-free Image Segmentation Model for Clinical Data and prepared Annotation dashboard for Haematologists to Annotate Segmented Images of Cells.</p>
-                        </div>
-                        <div class="timeline-details">
-                            <ul class="timeline-list">
-                                <li>Implemented Label-free Image Segmentation Model for Clinical Data and prepared Annotation dashboard for Haematologists to Annotate Segmented Images of Cells.</li>
-                                <li>Currently Developing multi-modal Classification model for red-blood cell morphology classification</li>
-                                <li>Architected the pipeline from uploading blood smear images captured using Brightfield microscopy to segmenting, classifying various morphologies of red blood cells and identifying non-normal cells in a comprehensive software suite enabling ease and effectiveness in clinical diagnosis</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div class="timeline-title-group">
-                                <h3>Co-founder, Researcher & Management Committee Member</h3>
-                                <span class="timeline-date">March 2024 – Present</span>
-                            </div>
-                            <button class="timeline-toggle" aria-label="Toggle experience details"><i class="fas fa-chevron-down"></i></button>
-                        </div>
-                        <div class="timeline-company">Innotech Manipal — Manipal</div>
-                        <div class="timeline-overview">
-                            <p>Co-founded Manipal's first multidisciplinary student-centered research initiative, uniting students in biotechnology, computer science, IT, AI / ML, electronics and VLSI design.</p>
-                        </div>
-                        <div class="timeline-details">
-                            <ul class="timeline-list">
-                                <li>Co-founded Manipal's first multidisciplinary student-centered research initiative, uniting students in biotechnology, computer science, IT, AI / ML, electronics and VLSI design.</li>
-                                <li>Currently focused on developing automation algorithms to manage and analyze complex cell data, aimed at enhancing data processing speed and providing detailed insights for transcription, genomics, and cell therapy.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-title-group">
-                            <h3>AR‑Assisted Surgical Diagnostics on Private 5G Edge Network</h3>
-                            <span class="project-date">April 2025 - July 2025</span>
-                        </div>
-                        <button class="project-toggle" aria-label="Toggle project details"><i class="fas fa-chevron-down"></i></button>
-                    </div>
-                    <div class="project-overview">
-                        <p>Designed and prototyped an AR‑enabled surgical diagnostics workflow using private 5G to stream high‑resolution slide images with minimal latency to an on‑premise edge node for real‑time AI inference.</p>
-                    </div>
-                    <div class="project-details">
-                        <ul class="project-list">
-                            <li>Designed and prototyped an AR‑enabled surgical diagnostics workflow using private 5G to stream high‑resolution slide images with minimal latency to an on‑premise edge node for real‑time AI inference.</li>
-                            <li>Implemented a lightweight U‑Net segmentation model on the edge server to spot tumor regions, achieving end‑to‑end inference and overlay update.</li>
-                            <li>Built a tablet‑based AR interface with fiducial marker tracking (OpenCV) to align AI segmentation overlays in the clinician's field of view, supporting on‑the‑fly adjustments.</li>
-                            <li>Engineered a six-stage integration pipeline—capture, pre-processing, edge inference, post-processing, AR rendering, and feedback loop—ensuring secure on‑premise data flow and incremental model retraining from user corrections.</li>
-                        </ul>
-                        <div class="project-tech"><strong>Tools & Technologies:</strong> Python, PyTorch (U‑Net), OpenCV, Docker, RESTful APIs, Unity (AR SDK), private 5G emulator, SQLite</div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-title-group">
-                            <h3>Catalyst Recommender</h3>
-                            <span class="project-date">May 2025</span>
-                        </div>
-                        <button class="project-toggle" aria-label="Toggle project details"><i class="fas fa-chevron-down"></i></button>
-                    </div>
-                    <div class="project-overview">
-                        <p>Developed a serverless cross-domain recommendation system on AWS that unifies user preferences across Prime Video, Kindle, and Amazon Music by mapping books, movies, and music into a shared semantic embedding space.</p>
-                    </div>
-                    <div class="project-details">
-                        <ul class="project-list">
-                            <li>Developed a serverless cross-domain recommendation system on AWS that unifies user preferences across Prime Video, Kindle, and Amazon Music by mapping books, movies, and music into a shared semantic embedding space.</li>
-                            <li>Leveraged Kinesis, Lambda, Glue, SageMaker, DynamoDB, Redis, and API Gateway to ingest, process, train, and serve real-time personalized recommendations (sub-200ms P99 latency).</li>
-                            <li>Achieved > 75% cross-domain accuracy and drove a projected 30% uplift in multi-service engagement through context-aware and social-first features.</li>
-                        </ul>
-                        <div class="project-tech"><strong>Tools & Technologies:</strong> Python, Jupyter Notebooks, AWS Kinesis, Lambda, Glue, SageMaker, DynamoDB, Redis, API Gateway</div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-title-group">
-                            <h3>Health Data Management and Informatics System</h3>
-                            <span class="project-date">January 2025 - March 2025</span>
-                        </div>
-                        <button class="project-toggle" aria-label="Toggle project details"><i class="fas fa-chevron-down"></i></button>
-                    </div>
-                    <div class="project-overview">
-                        <p>Developed a full‑stack Hospital Management System with PHP and MySQL, featuring patient registration, secure session‑based login, doctor directory, and AJAX‑driven appointment booking workflows.</p>
-                    </div>
-                    <div class="project-details">
-                        <ul class="project-list">
-                            <li>Developed a full‑stack Hospital Management System with PHP and MySQL, featuring patient registration, secure session‑based login, doctor directory, and AJAX‑driven appointment booking workflows.</li>
-                            <li>Architected a normalized relational schema (administrators, doctors, patients, appointments, contacts) with foreign‑key constraints and transaction integrity, and implemented an MVC‑inspired PHP structure using reusable includes, prepared statements, and session authentication.</li>
-                            <li>Built a responsive frontend with Bootstrap and custom SASS theming, integrating FullCalendar.js for availability calendars, interactive data tables, date‑range reporting, and full CRUD operations in the admin dashboard.</li>
-                        </ul>
-                        <div class="project-tech"><strong>Tools & Technologies:</strong> PHP, MySQL, JavaScript (jQuery, AJAX), HTML5, CSS3 (Bootstrap, SASS), FullCalendar.js, Git/GitHub</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="education" class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-grid">
-                <div class="education-card">
-                    <div class="education-header">
-                        <h3>Bachelor of Technology in Computer and Communication Engineering</h3>
-                        <span class="education-date">July 2023 – Present</span>
-                    </div>
-                    <div class="education-institution">Manipal Institute of Technology</div>
-                </div>
-                <div class="education-card">
-                    <div class="education-header">
-                        <h3>Grade XII Diploma</h3>
-                        <span class="education-date">June 2021 - March 2023</span>
-                    </div>
-                    <div class="education-institution">Canara Pre-University College</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="hackathons" class="section">
-        <div class="container">
-            <h2 class="section-title">Hackathons</h2>
-            <div class="hackathons-list">
-                <div class="hackathon-item">
-                    <i class="fas fa-trophy"></i>
-                    <div class="hackathon-content">
-                        <h3>CodeBot Hackathon (2025)</h3>
-                        <p>ARTPark @ IISc, Bangalore <span class="badge badge-finalist">Finalist</span></p>
-                    </div>
-                </div>
-                <div class="hackathon-item">
-                    <i class="fas fa-trophy"></i>
-                    <div class="hackathon-content">
-                        <h3>Hackon with Amazon, Season 5 (2025)</h3>
-                        <p><span class="badge badge-semifinalist">Semi‑Finalist</span></p>
-                    </div>
-                </div>
-                <div class="hackathon-item">
-                    <i class="fas fa-trophy"></i>
-                    <div class="hackathon-content">
-                        <h3>Hack to Future 2025</h3>
-                        <p>Karnataka Law Society's Gogte Institute of Technology, Belgaum <span class="badge badge-finalist">Finalist</span></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="certifications" class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Certifications</h2>
-            <div class="certifications-grid">
-                <div class="certification-card">
-                    <i class="fas fa-certificate"></i>
-                    <div class="certification-content">
-                        <h3>Introduction to Data Science</h3>
-                        <p>IBM (Coursera)</p>
-                    </div>
-                </div>
-                <div class="certification-card">
-                    <i class="fas fa-certificate"></i>
-                    <div class="certification-content">
-                        <h3>Foundations of Cybersecurity</h3>
-                        <p>Google (Coursera)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="technologies" class="section">
-        <div class="container">
-            <h2 class="section-title">Technologies</h2>
-            <div class="technologies-grid">
-                <div class="tech-category">
-                    <h3><i class="fas fa-code"></i> Programming</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span><span class="tech-tag">C</span><span class="tech-tag">C++</span><span class="tech-tag">Java</span><span class="tech-tag">R</span><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Kotlin</span><span class="tech-tag">C#</span>
-                    </div>
-                </div>
-                <div class="tech-category">
-                    <h3><i class="fas fa-book"></i> Libraries</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Pandas</span><span class="tech-tag">NumPy</span><span class="tech-tag">Scikit-learn</span><span class="tech-tag">TensorFlow</span><span class="tech-tag">Seaborn</span><span class="tech-tag">Matplotlib</span><span class="tech-tag">PyTorch</span><span class="tech-tag">Keras</span><span class="tech-tag">SciPy</span>
-                    </div>
-                </div>
-                <div class="tech-category">
-                    <h3><i class="fas fa-brain"></i> AI & Machine Learning</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Large Language Models (LLMs)</span><span class="tech-tag">Fine-Tuning LLMs</span><span class="tech-tag">Prompt Engineering</span><span class="tech-tag">Neural Networks & Transformers</span><span class="tech-tag">Machine Learning (ML) Fundamentals</span><span class="tech-tag">Deep Learning Frameworks</span><span class="tech-tag">Model Optimization & Deployment</span>
-                    </div>
-                </div>
-                <div class="tech-category">
-                    <h3><i class="fas fa-cogs"></i> Software Engineering</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Object-Oriented Programming (OOP)</span><span class="tech-tag">Software Development</span><span class="tech-tag">Version Control (Git & GitHub)</span><span class="tech-tag">Modular & Extensible System Design</span>
-                    </div>
-                </div>
-                <div class="tech-category">
-                    <h3><i class="fas fa-database"></i> Data Processing & Analysis</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Data Preprocessing & Cleaning</span><span class="tech-tag">Data Processing Pipelines</span><span class="tech-tag">Handling Structured & Unstructured Data</span><span class="tech-tag">Data Analysis & Visualization</span>
-                    </div>
-                </div>
-                <div class="tech-category">
-                    <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Cloud Computing (AWS, Azure)</span><span class="tech-tag">Containerization (Docker)</span><span class="tech-tag">Model Deployment in Cloud Environments</span><span class="tech-tag">CI/CD for AI Workflows</span>
-                    </div>
-                </div>
-                <div class="tech-category">
-                    <h3><i class="fas fa-desktop"></i> Operating Systems</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Windows</span><span class="tech-tag">Linux (Kali, Arch, Ubuntu & Debian)</span><span class="tech-tag">Android</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <p class="contact-description">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div><h4>Location</h4><p>Mangalore, India</p></div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div><h4>Email</h4><a href="mailto:abhimg20@proton.me">abhimg20@proton.me</a></div>
-                    </div>
-                </div>
-                <div class="contact-form-container">
-                    <h3>Send me a message</h3>
-                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xpwnqjqk" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <input type="hidden" name="_to" value="abhimg20@proton.me">
-                        <input type="hidden" name="_subject" value="Portfolio Contact Form">
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                    <div id="formMessage" class="form-message"></div>
-                </div>
-                <div class="contact-social">
-                    <a href="https://www.linkedin.com/in/abhi-m-g-62925a218/" target="_blank" class="social-btn"><i class="fab fa-linkedin"></i><span>LinkedIn</span></a>
-                    <a href="https://github.com/abhi-mike-g" target="_blank" class="social-btn"><i class="fab fa-github"></i><span>GitHub</span></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Abhidutta Mukund Giri. All rights reserved.</p>
-            <p class="footer-note">Last updated: November 2025</p>
-        </div>
-    </footer>
+    </div>
 
     <script>
-        // Theme Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-        
-        // Check for saved theme preference or default to dark mode
-        const currentTheme = localStorage.getItem('theme') || 'dark';
-        if (currentTheme === 'light') {
-            body.classList.add('light-mode');
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let lines = [];
+        let clickLines = [];
+
+        const colors = [
+            '#ff0000',
+            '#00ff00',
+            '#0000ff',
+            '#ffff00',
+            '#ff00ff',
+            '#00ffff',
+            '#ffffff'
+        ];
+
+        function hexToRgb(hex) {
+            const r = parseInt(hex.slice(1, 3), 16);
+            const g = parseInt(hex.slice(3, 5), 16);
+            const b = parseInt(hex.slice(5, 7), 16);
+            return { r, g, b };
         }
-        
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('light-mode');
-            const isLightMode = body.classList.contains('light-mode');
-            themeToggle.innerHTML = isLightMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-            localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
-        });
-        
-        // Mobile Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('navMenu');
-        
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
-        
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Timeline Toggle
-        document.querySelectorAll('.timeline-toggle').forEach(toggle => {
-            toggle.addEventListener('click', () => {
-                const details = toggle.closest('.timeline-content').querySelector('.timeline-details');
-                details.classList.toggle('active');
-                toggle.classList.toggle('active');
-            });
-        });
-        
-        // Project Toggle
-        document.querySelectorAll('.project-toggle').forEach(toggle => {
-            toggle.addEventListener('click', () => {
-                const details = toggle.closest('.project-card').querySelector('.project-details');
-                details.classList.toggle('active');
-                toggle.classList.toggle('active');
-            });
-        });
-        
-        // Form Submission
-        const contactForm = document.getElementById('contactForm');
-        const formMessage = document.getElementById('formMessage');
-        
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const formData = new FormData(contactForm);
-            const submitBtn = contactForm.querySelector('.btn-primary');
-            const originalBtnText = submitBtn.textContent;
-            
-            // Show loading state
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            try {
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (response.ok) {
-                    formMessage.textContent = 'Thank you! Your message has been sent successfully.';
-                    formMessage.className = 'form-message success';
-                    contactForm.reset();
-                } else {
-                    throw new Error('Failed to send message');
-                }
-            } catch (error) {
-                formMessage.textContent = 'Sorry, there was an error sending your message. Please try again.';
-                formMessage.className = 'form-message error';
-            } finally {
-                submitBtn.textContent = originalBtnText;
-                submitBtn.disabled = false;
-                
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
+
+        // Original random lines
+        class Line {
+            constructor() {
+                this.reset();
             }
-        });
-        
-        // Active Navigation Link
-        const sections = document.querySelectorAll('.section');
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        function updateActiveLink() {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 2;
+                this.vy = (Math.random() - 0.5) * 2;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.rgb = hexToRgb(this.color);
+                this.points = [];
+                this.maxPoints = 50;
+                this.amplitude = Math.random() * 100 + 50;
+                this.frequency = Math.random() * 0.02 + 0.01;
+                this.phase = Math.random() * Math.PI * 2;
+                this.age = 0;
+                this.lifespan = 600 + Math.random() * 1200;
+                this.alive = true;
+            }
+
+            getAlpha() {
+                const fadeInDuration = 60;
+                const fadeOutDuration = 300;
+
+                let alpha = 1;
+
+                if (this.age < fadeInDuration) {
+                    alpha = this.age / fadeInDuration;
+                } else if (this.age > this.lifespan - fadeOutDuration) {
+                    alpha = Math.max(
+                        0,
+                        (this.lifespan - this.age) / fadeOutDuration
+                    );
                 }
-            });
-            
-            navLinks.forEach(link => {
-                link.style.color = '';
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.style.color = 'var(--primary)';
+
+                return alpha;
+            }
+
+            update() {
+                this.age++;
+                if (this.age > this.lifespan) {
+                    this.reset();
+                    return;
                 }
-            });
+
+                this.phase += 0.02;
+                this.x += this.vx;
+                this.y += this.vy;
+
+                const waveY =
+                    Math.sin(this.x * this.frequency + this.phase) *
+                    this.amplitude *
+                    0.3;
+
+                this.points.push({
+                    x: this.x,
+                    y: this.y + waveY
+                });
+
+                if (this.points.length > this.maxPoints) {
+                    this.points.shift();
+                }
+
+                let wrapped = false;
+                if (this.x < -100) {
+                    this.x = width + 100;
+                    wrapped = true;
+                }
+                if (this.x > width + 100) {
+                    this.x = -100;
+                    wrapped = true;
+                }
+                if (this.y < -100) {
+                    this.y = height + 100;
+                    wrapped = true;
+                }
+                if (this.y > height + 100) {
+                    this.y = -100;
+                    wrapped = true;
+                }
+
+                if (wrapped) {
+                    this.points = [];
+                }
+            }
+
+            draw() {
+                if (this.points.length < 2) return;
+
+                const lineAlpha = this.getAlpha();
+                const { r, g, b } = this.rgb;
+
+                for (let i = 1; i < this.points.length; i++) {
+                    const pointAlpha =
+                        (i / this.points.length) * lineAlpha;
+
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${pointAlpha})`;
+                    ctx.lineWidth = 1.5;
+
+                    const prev = this.points[i - 1];
+                    const curr = this.points[i];
+                    const xc = (curr.x + prev.x) / 2;
+                    const yc = (curr.y + prev.y) / 2;
+
+                    ctx.moveTo(prev.x, prev.y);
+                    ctx.quadraticCurveTo(prev.x, prev.y, xc, yc);
+                    ctx.stroke();
+                }
+            }
         }
-        
-        window.addEventListener('scroll', updateActiveLink);
-        
-        // Scroll reveal animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.6s ease-out';
+
+        // Click-triggered lines radiating outward
+        class ClickLine {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 2 + 1.5;
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.rgb = hexToRgb(this.color);
+                this.points = [];
+                this.maxPoints = 40;
+                this.amplitude = Math.random() * 80 + 30;
+                this.frequency = Math.random() * 0.03 + 0.015;
+                this.phase = Math.random() * Math.PI * 2;
+                this.age = 0;
+                this.lifespan = 180 + Math.random() * 120; // 3-5 seconds
+            }
+
+            getAlpha() {
+                const fadeInDuration = 20;
+                const fadeOutDuration = 60;
+
+                let alpha = 1;
+
+                if (this.age < fadeInDuration) {
+                    alpha = this.age / fadeInDuration;
+                } else if (this.age > this.lifespan - fadeOutDuration) {
+                    alpha = Math.max(
+                        0,
+                        (this.lifespan - this.age) / fadeOutDuration
+                    );
                 }
+
+                return alpha;
+            }
+
+            update() {
+                this.age++;
+                if (this.age > this.lifespan) {
+                    return false; // Signal to remove
+                }
+
+                this.phase += 0.03;
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Slight deceleration
+                this.vx *= 0.995;
+                this.vy *= 0.995;
+
+                // Add perpendicular wave motion
+                const perpX = -this.vy;
+                const perpY = this.vx;
+                const len = Math.sqrt(perpX * perpX + perpY * perpY);
+                const normPerpX = len > 0 ? perpX / len : 0;
+                const normPerpY = len > 0 ? perpY / len : 0;
+
+                const waveOffset = Math.sin(this.x * this.frequency + this.phase) * this.amplitude;
+
+                this.points.push({
+                    x: this.x + normPerpX * waveOffset,
+                    y: this.y + normPerpY * waveOffset
+                });
+
+                if (this.points.length > this.maxPoints) {
+                    this.points.shift();
+                }
+
+                // Remove if off screen
+                if (this.x < -50 || this.x > width + 50 || 
+                    this.y < -50 || this.y > height + 50) {
+                    return false;
+                }
+
+                return true;
+            }
+
+            draw() {
+                if (this.points.length < 2) return;
+
+                const lineAlpha = this.getAlpha();
+                const { r, g, b } = this.rgb;
+
+                ctx.beginPath();
+                ctx.moveTo(this.points[0].x, this.points[0].y);
+
+                for (let i = 1; i < this.points.length; i++) {
+                    const pointAlpha = (i / this.points.length) * lineAlpha;
+                    ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${pointAlpha})`;
+                    ctx.lineWidth = 2;
+
+                    const prev = this.points[i - 1];
+                    const curr = this.points[i];
+                    const xc = (curr.x + prev.x) / 2;
+                    const yc = (curr.y + prev.y) / 2;
+
+                    ctx.lineTo(curr.x, curr.y);
+                }
+
+                ctx.stroke();
+            }
+        }
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        function init() {
+            resize();
+            lines = [];
+            clickLines = [];
+            const numLines = 25;
+            for (let i = 0; i < numLines; i++) {
+                lines.push(new Line());
+            }
+        }
+
+        function handleClick(e) {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Spawn multiple lines radiating outward
+            const numClickLines = 12;
+            for (let i = 0; i < numClickLines; i++) {
+                clickLines.push(new ClickLine(x, y));
+            }
+
+            // Limit total click lines to prevent performance issues
+            if (clickLines.length > 150) {
+                clickLines = clickLines.slice(-150);
+            }
+        }
+
+        canvas.addEventListener('click', handleClick);
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = '#1a1a1a';
+            ctx.fillRect(0, 0, width, height);
+
+            // Draw original random lines
+            lines.forEach((line) => {
+                line.update();
+                line.draw();
             });
-        }, observerOptions);
-        
-        // Observe timeline items, project cards, and other elements
-        document.querySelectorAll('.timeline-item, .project-card, .education-card, .hackathon-item, .certification-card, .tech-category').forEach(el => {
-            observer.observe(el);
+
+            // Draw and update click lines
+            clickLines = clickLines.filter((line) => {
+                const alive = line.update();
+                if (alive) {
+                    line.draw();
+                }
+                return alive;
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            resize();
+            init();
         });
+
+        init();
+        animate();
     </script>
 </body>
+
 </html>
